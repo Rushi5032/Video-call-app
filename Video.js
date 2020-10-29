@@ -71,10 +71,7 @@ class Video extends Component {
     RtcEngine.joinChannel(this.state.channelName, this.state.uid); //Join Channel
     RtcEngine.enableAudio(); //Enable the audio
   }
-  /**
-   * @name toggleAudio
-   * @description Function to toggle local user's audio
-   */
+
   toggleAudio() {
     let mute = this.state.audMute;
     console.log('Audio toggle', mute);
@@ -83,10 +80,7 @@ class Video extends Component {
       audMute: !mute,
     });
   }
-  /**
-   * @name toggleVideo
-   * @description Function to toggle local user's video
-   */
+
   toggleVideo() {
     let mute = this.state.vidMute;
     console.log('Video toggle', mute);
@@ -95,18 +89,12 @@ class Video extends Component {
     });
     RtcEngine.muteLocalVideoStream(!this.state.vidMute);
   }
-  /**
-   * @name endCall
-   * @description Function to end the call
-   */
+
   endCall() {
     RtcEngine.destroy();
     Actions.home();
   }
-  /**
-   * @name peerClick
-   * @description Function to swap the main peer videostream with a different peer videostream
-   */
+
   peerClick(data) {
     let peerIdToSwap = this.state.peerIds.indexOf(data);
     this.setState((prevState) => {
@@ -117,10 +105,7 @@ class Video extends Component {
       return {peerIds: currentPeers};
     });
   }
-  /**
-   * @name videoView
-   * @description Function to return the view for the app
-   */
+
   videoView() {
     const callcut = parseIconFromClassName('fas fa-phone-slash');
     const mic = parseIconFromClassName('fas fa-microphone');
@@ -212,24 +197,6 @@ class Video extends Component {
             icon={this.state.vidMute ? vidcut : vid}
             onPress={() => this.toggleVideo()}
           />
-          {/* <Icon.Button
-            style={styles.iconStyle}
-            backgroundColor="#0093E9"
-            name={this.state.audMute ? 'microphone-slash' : 'microphone'}
-            onPress={() => this.toggleAudio()}
-          />
-          <Icon.Button
-            style={styles.iconStyle}
-            backgroundColor="#0093E9"
-            name="call-end"
-            onPress={() => this.endCall()}
-          />
-          <Icon.Button
-            style={styles.iconStyle}
-            backgroundColor="#0093E9"
-            name={this.state.vidMute ? 'videocam_off' : 'videocam'}
-            onPress={() => this.toggleVideo()}
-          /> */}
         </View>
       </View>
     );

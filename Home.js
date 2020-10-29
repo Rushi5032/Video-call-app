@@ -24,10 +24,7 @@ class Home extends Component {
       });
     }
   }
-  /**
-   * @name handleSubmit
-   * @description Helper function to handle data on submit click
-   */
+
   handleSubmit = () => {
     let AppID = this.state.AppID;
     let ChannelName = this.state.ChannelName;
