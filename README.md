@@ -24,4 +24,7 @@ It will take some time to get running on emulator.
 You have to connect your device with your machine and then type `npx react-native run-android` or `yarn android`.\
 It will auto detect your device and will install and run app on your device. But first you have to enable USB debugging from developer options and give permission to install app via USB on your device.
 
+## 
+I also uploaded .apk file of application. you can simply download it and install on your mobile device.
+
 
