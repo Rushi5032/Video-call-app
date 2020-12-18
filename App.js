@@ -5,32 +5,90 @@
  * @format
  * @flow strict-local
  */
-import {Router, Scene, ActionConst} from 'react-native-router-flux';
 import React from 'react';
-import Home from './Home';
-import Video from './Video';
+import Home from './components/Home';
+import Video from './components/Video';
+import Login from './components/Login';
+import Register from './components/Register';
+import ForgotPassword from './components/ForgotPassword';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <Router>
-      <Scene>
-        <Scene
-          key="home"
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Forgot"
+          component={ForgotPassword}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Home"
           component={Home}
-          title="MP"
-          initial
-          type={ActionConst.RESET}
+          options={{headerShown: false}}
         />
-        <Scene
-          key="video"
+        <Stack.Screen
+          name="Video"
           component={Video}
-          title="Video Feed"
-          type={ActionConst.RESET}
-          hideNavBar={true}
+          options={{headerShown: false}}
         />
-      </Scene>
-    </Router>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
+  // return (
+  //   <Router>
+  //     <Scene>
+  //       <Scene
+  //         key="login"
+  //         component={Login}
+  //         title="Login"
+  //         initial
+  //         hideNavBar={true}
+  //         type={ActionConst.RESET}
+  //       />
+  //       <Scene
+  //         key="register"
+  //         component={Register}
+  //         title="Register"
+  //         hideNavBar={true}
+  //         type={ActionConst.RESET}
+  //       />
+  //       <Scene
+  //         key="forgot"
+  //         component={ForgotPassword}
+  //         title="Forgot Password"
+  //         hideNavBar={true}
+  //         type={ActionConst.RESET}
+  //       />
+  //       <Scene
+  //         key="home"
+  //         component={Home}
+  //         title="MP"
+  //         type={ActionConst.RESET}
+  //       />
+  //       <Scene
+  //         key="video"
+  //         component={Video}
+  //         title="Video Feed"
+  //         type={ActionConst.RESET}
+  //         hideNavBar={true}
+  //       />
+  //     </Scene>
+  //   </Router>
+  // );
 };
 
 export default App;
